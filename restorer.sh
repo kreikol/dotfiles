@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_PATH="$HOME/.dotfiles"
+export DOTFILES_PATH="$HOME/.dotfiles"
 
 git clone https://github.com/kreikol/prueba $DOTFILES_PATH
 
@@ -9,7 +9,7 @@ cd $DOTFILES_PATH
 git submodule update --init --recursive modules/dotly
 
 
-DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
+export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
 
 "$DOTLY_PATH/bin/dot" self install
 
