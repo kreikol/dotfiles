@@ -2,3 +2,6 @@
 	path = modules/dotly
 	url = https://github.com/CodelyTV/dotly.git
 	branch = main
+[submodule "os/linux/dunst/themes"]
+	path = os/linux/dunst/themes
+	url = https://github.com/catppuccin/dunst.git
