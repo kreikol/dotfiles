@@ -9,6 +9,7 @@ cd $DOTFILES_PATH
 
 git submodule update --init --recursive 
 
+export DOTLY_INSTALLER=true
 export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
 
 $DOTLY_PATH/bin/dot self install
