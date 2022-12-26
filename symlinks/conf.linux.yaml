@@ -7,3 +7,8 @@
 
 - link:
     ~/.dotly: os/linux/.dotly
+    ~/wallpaper.jpg: images/wallpaper.jpg
+    ~/.config/i3: os/i3
+    ~/.config/gtk-3.0: os/linux/x/gtk-3.0
+    ~/.xinitrc: os/linux/x/.xinitrc
+    ~/.gitconfig: git/.gitconfig
