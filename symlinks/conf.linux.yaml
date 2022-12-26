@@ -14,3 +14,4 @@
     ~/.gitconfig: git/.gitconfig
     ~/.config/dunst: os/linux/dunst
     ~/.config/lxterminal: os/linux/lxterminal
+    ~/.config/nvim: editors/nvim
