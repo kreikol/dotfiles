@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_PATH="$1"
+DOTFILES_PATH=".dotfiles"
 
 git clone https://github.com/kreikol/prueba $DOTFILES_PATH
 
