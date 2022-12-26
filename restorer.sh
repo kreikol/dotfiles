@@ -22,6 +22,8 @@ export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
 
 
 echo ">"
+echo ">"
+echo ">"
 echo $DOTFILES_PATH
 echo $DOTLY_PATH
 echo $DOTLY_INSTALLER
@@ -36,13 +38,17 @@ echo ">"
 echo "> Go to import package"
 $DOTLY_PATH/bin/dot package import
 
-echo "Ejecutamos los post-import"
+echo ">"
+echo ">"
+echo ">"
+echo ">"
+echo ">"
+echo ">"
+echo "> Ejecutamos los post-import"
 sudo systemctl enable lightd.service
 
-echo "Restauración terminada, presione una tecla para reiniciar.."
+echo ">"
+echo ">"
+echo ">"
+read -p "Restauración terminada, presione una tecla para reiniciar.."
 
-if whiptail --yesno "Is this a good question" 20 60 ;then
-	sudo reboot
-else
-	echo "Todo listo para trabajar!! :) " 
-fi
