@@ -1,4 +1,4 @@
 echo
 echo "Change shell to zsh"
 echo
-chsh -s /bin/zsh $USER
+sudo -A chsh -s /bin/zsh $USER
