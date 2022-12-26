@@ -12,3 +12,5 @@
     ~/.config/gtk-3.0: os/linux/x/gtk-3.0
     ~/.xinitrc: os/linux/x/.xinitrc
     ~/.gitconfig: git/.gitconfig
+    ~/.config/dunst: os/linux/dunst
+    ~/.config/lxterminal: os/linux/lxterminal
