@@ -15,7 +15,7 @@ echo ">"
 echo ">"
 echo ">"
 echo "> Ejecutamos los post-import"
-sudo systemctl enable lightd.service
+sudo systemctl enable lightdm.service
 
 echo ">"
 echo ">"
