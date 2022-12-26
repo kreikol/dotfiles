@@ -1,19 +1,19 @@
 #!/bin/bash
 
 export DOTFILES_PATH="$HOME/.dotfiles"
+echo $DOTFILES_PATH
 
 git clone https://github.com/kreikol/prueba $DOTFILES_PATH
 
 cd $DOTFILES_PATH
 
-git submodule update --init --recursive modules/dotly
-
+git submodule update --init --recursive 
 
 export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
 
-"$DOTLY_PATH/bin/dot" self install
+$DOTLY_PATH/bin/dot self install
 
-"$DOTLY_PATH/bin/dot" package import
+$DOTLY_PATH/bin/dot package import
 
 echo "Ejecutamos los post-import"
 sudo systemctl enable lightd.service
