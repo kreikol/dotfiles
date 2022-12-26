@@ -1,3 +1,7 @@
+#!/usr/bash
+
+export SUDO_ASKPASS=~/.config/i3/dmenupass
+
 echo
 echo "Enable LightDM"
 echo

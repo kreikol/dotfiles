@@ -1,3 +1,5 @@
+export SUDO_ASKPASS=~/.config/i3/dmenupass
+
 echo
 echo "Initialized and update git submodules to dotly"
 echo
