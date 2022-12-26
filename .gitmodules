@@ -11,18 +11,6 @@
 [submodule "shell/zsh/.zim/modules/environment"]
 	path = shell/zsh/.zim/modules/environment
 	url = https://github.com/zimfw/environment.git
-[submodule "shell/zsh/.zim/modules/git/info"]
-	path = shell/zsh/.zim/modules/git/info
-	url = https://github.com/zimfw/git-info.git
-[submodule "shell/zsh/.zim/modules/git/input"]
-	path = shell/zsh/.zim/modules/git/input
-	url = https://github.com/zimfw/input.git
-[submodule "shell/zsh/.zim/modules/git/zsh-autosuggestions"]
-	path = shell/zsh/.zim/modules/git/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "shell/zsh/.zim/modules/git/zsh-syntax-highlighting"]
-	path = shell/zsh/.zim/modules/git/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "shell/zsh/.zim/modules/git-info"]
 	path = shell/zsh/.zim/modules/git-info
 	url = https://github.com/zimfw/git-info.git
