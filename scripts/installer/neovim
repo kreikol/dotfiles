@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Instala NeoVim con el deb oficial de la ultima release
+
+FILE=~/Applications/nvim-linux64.deb
+
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb --output-document $FILE
+
+while [ ! -f "$FILE" ]
+do
+	echo "Downloading neovim deb..."
+done
+
+echo "Done. It will be installed..." 
+chmod +x $FILE
+sudo apt install $FILE
+
+echo "NeoVim install successfully!!"
+
+echo "Will be opened to install packer"
+nvim -u .config/nvim/lua/packer.lua
