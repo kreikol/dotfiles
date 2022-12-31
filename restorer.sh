@@ -3,7 +3,7 @@ echo '>> Actualizamos el repositorio apt'
 sudo apt update -y
 
 echo '>> Actualizmos los paquetes actuales' 
-sudo apt upgrade
+sudo apt upgrade -y
 
 echo '>'
 echo '> Vamos con los dotfiles' 

@@ -13,7 +13,7 @@ then
                  echo "No hay ninguna restauracion en proceso"
 fi
 
-GHK=~/.ssh/id_githubb
+GHK=~/.ssh/id_github
 if [ -f "$GHK" ]
 then
            eval $(ssh-agent -s)

@@ -11,6 +11,12 @@ $DOTLY_PATH/bin/dot package import
 echo ">"
 echo ">"
 echo ">"
+echo "> Actualizamos TLDR" 
+tldr -u
+
+echo ">"
+echo ">"
+echo ">"
 echo ">"
 echo ">"
 echo ">"
