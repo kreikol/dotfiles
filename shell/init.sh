@@ -9,7 +9,6 @@ if [ -f "$FICHERO" ]
 then
            echo "Restauracion en proceso, vamos a importar los paquetes"
            bash <(curl -s https://raw.githubusercontent.com/kreikol/prueba/HEAD/importer.sh)
-              rm -rf $FICHERO
       else
                  echo "No hay ninguna restauracion en proceso"
 fi

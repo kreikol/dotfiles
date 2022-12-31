@@ -22,3 +22,7 @@ echo ">"
 echo ">"
 read -p "Restauración terminada, presione una tecla para reiniciar.."
 
+rm -rf ~/.restore.mir
+
+sudo reboot
+
