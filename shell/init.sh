@@ -13,3 +13,11 @@ then
       else
                  echo "No hay ninguna restauracion en proceso"
 fi
+
+GHK=~/.ssh/id_githubb
+if [ -f "$GHK" ]
+then
+           eval $(ssh-agent -s)
+           ssh-add $GHK
+           echo "Github key loaded"
+fi
