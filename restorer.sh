@@ -1,4 +1,15 @@
 #!/bin/bash
+echo '>> Actualizamos el repositorio apt' 
+sudo apt update -y
+
+echo '>> Actualizmos los paquetes actuales' 
+sudo apt upgrade
+
+echo '>'
+echo '> Vamos con los dotfiles' 
+
+
+
 
 export DOTFILES_PATH="$HOME/.dotfiles"
 echo $DOTFILES_PATH
