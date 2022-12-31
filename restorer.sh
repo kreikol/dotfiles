@@ -30,6 +30,8 @@ echo $DOTLY_INSTALLER
 echo ">"
 echo "> Go to install dotly"
 
+$DOTLY_PATH/bin/dot package add docpars
+echoo " >> docpars instalado \n\n"
 $DOTLY_PATH/bin/dot self install
 
 echo ">"
