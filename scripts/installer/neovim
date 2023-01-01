@@ -18,4 +18,5 @@ sudo apt install $FILE
 echo "NeoVim install successfully!!"
 
 echo "Will be opened to install packer"
-nvim -u ~/.config/nvim/lua/packer.lua
+nvim -u ~/.config/nvim/lua/settings.lua 
+echo "PackInstall" 
