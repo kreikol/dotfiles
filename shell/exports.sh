@@ -50,6 +50,8 @@ path+=(
 	"/usr/bin"
 	"/usr/sbin"
 	"/sbin"
+	"$HOME/Applications/bin"
+	"$HOME/Applications/node/bin"
 )
 
 export path

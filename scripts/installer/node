@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Instala NodeJS la ultima LTS de la pagina oficial
+
+set -e
+
+cd ~/Applications
+FILE=~/Applications/node-v18.12.1-linux-x64.tar.xz
+
+wget https://nodejs.org/dist/v18.12.1/node-v18.12.1-linux-x64.tar.xz
+
+while [ ! -f "$FILE" ]
+do
+	echo "Downloading NodeJS deb..."
+done
+
+echo "Done. It will be installed..." 
+
+tar -xvf $FILE
+
+ln -s node-v18.12.1-linux-x64 node
+
+echo -e "NodeJS install successfully: \n $(node --version)"
+
+echo "Limpiamos temporales"
+rm -rf $FILE
+
