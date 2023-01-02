@@ -3,10 +3,12 @@ alias sudo='sudo '
 
 alias ..="cd .."
 alias ...="cd ../.."
-alias ll="ls -l"
-alias la="ls -la"
+alias ll="ls -la"
+alias lll="ls -l"
 alias ~="cd ~"
 alias dotfiles='cd $DOTFILES_PATH'
+alias v='nvim'
+alias vim='nvim'
 
 # Git
 alias gaa="git add -A"

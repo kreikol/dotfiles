@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Comprueba la ubicacion del equipo, devuelve true en caso de estar en casa, o false en caso contrario
+
+myip=$(ip route get 1.2.3.4 | awk '{print $7}')
+# echo "$myip - athome $ATHOME_IP" 
+
+if [[ $myip == $ATHOME_IP ]]; then
+	echo "estoy en casa"
+	exit 0
+else
+	echo " de parranda"
+exit 2
+fi
+

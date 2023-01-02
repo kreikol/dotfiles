@@ -2,4 +2,4 @@
 	email = kreikol@gmail.com
 	name = Miriam Ruiz
 [core]
-	editor = vim
+	editor = nvim --noplugins
