@@ -8,9 +8,9 @@ FICHERO=~/.restore.mir
 if [ -f "$FICHERO" ]
 then
            echo "Restauracion en proceso, vamos a importar los paquetes"
-           bash <(curl -s https://raw.githubusercontent.com/kreikol/prueba/HEAD/importer.sh)
+					 $DOTFILES_PATH/importer.sh
       else
-                 echo "No hay ninguna restauracion en proceso"
+					 echo "No hay ninguna restauracion en proceso"
 fi
 
 GHK=~/.ssh/id_github
