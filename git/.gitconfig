@@ -1,5 +1,0 @@
-[user]
-	email = kreikol@gmail.com
-	name = Miriam Ruiz
-[core]
-	editor = nvim --noplugins

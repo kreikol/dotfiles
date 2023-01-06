@@ -7,13 +7,10 @@
 
 - link:
     ~/.dotly: os/linux/.dotly
-    ~/.ssh/id_github: git/id_githubb
-    ~/.ssh/id_github.pub: git/id_githubb.pub
     ~/wallpaper.jpg: images/wallpaper.jpg
     ~/.config/i3: os/i3
     ~/.config/gtk-3.0: os/linux/x/gtk-3.0
     ~/.xinitrc: os/linux/x/.xinitrc
-    ~/.gitconfig: git/.gitconfig
     ~/.config/dunst: os/linux/dunst
     ~/.config/lxterminal: os/linux/lxterminal
     ~/.config/nvim: editors/nvim
