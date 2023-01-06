@@ -19,7 +19,12 @@ echo ">"
 echo ">"
 echo ">"
 
-git clone https://github.com/kreikol/prueba $DOTFILES_PATH
+# Cargamos la clave ssh de GitHub
+eval "$(ssh-agent -s)"
+ssh-add "$2"
+
+# Clonamos el repositorio indicado para los dotfiles 
+git clone ssh://git@github.com/kreikol/$1 $DOTFILES_PATH
 
 cd $DOTFILES_PATH
 
