@@ -1,4 +1,5 @@
 arandr
+bat
 base-files
 base-passwd
 bash

@@ -1,6 +1,8 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+alias cat='batcat'
+alias ccat='/usr/bin/cat'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ll="ls -la"
