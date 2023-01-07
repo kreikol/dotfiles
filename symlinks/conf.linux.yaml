@@ -7,6 +7,7 @@
 
 - link:
     ~/.dotly: os/linux/.dotly
+    ~/.screenlayout: os/linux/screenlayout
     ~/wallpaper.jpg: images/wallpaper.jpg
     ~/.config/i3: os/i3
     ~/.config/gtk-3.0: os/linux/x/gtk-3.0

@@ -6,6 +6,13 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# Establecemos la disposición de monitores según la ubicación
+exec /home/mruiz/.config/i3/displays-setup.sh
+
+# Wallpaper
+exec_always feh --bg-fill ~/.config/i3/background.png
+
+
 bindsym $mod + F1 exec sheetkb.sh
 assign [class="feh"] output primary
 # for_window [title="feh [1 of 1] - /home/mruiz/Pictures/keyboard-us.png"] border pixel 12 sticky
@@ -191,8 +198,6 @@ bindsym $mod+c exec ~/.config/i3/vpns.sh
 
 
 
-# Conectar Cascos Bose
-#bindsym $mod+b exec bluetoothctl connect 28:11:A5:D9:4D:0C
 # bindsym $mod+b exec --no-startup-id bluetooth-dmenu
 bindsym $mod+b exec --no-startup-id dmenu-bluetooth
 
@@ -233,8 +238,6 @@ assign [title="DevWin [Corriendo]*"] $wsVM
 
 # Quitar borders
 for_window [class="^.*"] border pixel 3
-# Wallpaper
-exec_always feh --bg-fill ~/.config/i3/background.png
 
 # gaps inner 6
 # gaps outer 6
