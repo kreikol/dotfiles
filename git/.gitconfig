@@ -1,3 +1,19 @@
 [user]
-	email = mruiz@espublico.tech
-	name = Miriam Ruiz
+        name = Miriam Ruiz 
+        email = mruiz@espublico.tech
+
+[diff]                                                               
+        tool = p4merge                                               
+[difftool "p4merge"]                                                 
+        path = /home/mruiz/Programas/p4v-2021.2.2138880/bin/p4merge  
+[merge]                                                              
+        tool = p4merge                                               
+[mergetool "p4merge"]                                                
+        path = /home/mruiz/Programas/p4v-2021.2.2138880/bin/p4merge  
+[mergetool]                                                          
+				keepBackup = false
+
+[fetch]
+	prune = true
+[core]
+	autocrlf = input
