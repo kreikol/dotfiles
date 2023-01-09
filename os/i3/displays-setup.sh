@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 
-if [[ $(/home/mruiz/.dotfiles/scripts/utils/athome) ]]; then
+if [[ /home/mruiz/.dotfiles/scripts/utils/athome ]]; then
+# if [[ $(/home/mruiz/.dotfiles/scripts/utils/athome) ]]; then
 	echo 'Estoy en casa' 	
 	/home/mruiz/.screenlayout/home.display
 else

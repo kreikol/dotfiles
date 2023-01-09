@@ -1,0 +1,7 @@
+#!/bin/bash
+
+project=$(ls  /home/mruiz/workspaces/.tech-projects | fzf )
+
+# echo " 
+dot webs app https://redmine.g3stiona.com/redmine/projects/$project/issues
+# "

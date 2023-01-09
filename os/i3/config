@@ -183,10 +183,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Apagar el equipo
-bindsym control+Mod1+Delete exec shutdown now
-# Bloquear pantalla Ctrl + Alt + L  
-#    (también puedo mirar slok o slimlock)
-bindsym control+Mod1+l exec i3lock
+bindsym control+Mod4+BackSpace exec shutdown now
+# Bloquear pantalla Ctrl + Suoer + L  
+bindsym control+Mod4+l exec dm-tool lock
 # Suspender (no quiero suspender tan solo con el MOD!!)
 #bindsym $mod+l exec systemctl suspend
 

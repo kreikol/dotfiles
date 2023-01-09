@@ -10,6 +10,7 @@ source "$DOTLY_PATH/scripts/core/_main.sh"
 ##?    open
 docs::parse "$@"
 
+cd $TECH_DIARY
 YEAR=$(date +"%Y")
 
 nvim $TECH_DIARY/developers/mruiz/$YEAR.md +
