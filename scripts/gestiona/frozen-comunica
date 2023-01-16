@@ -1,0 +1,50 @@
+#!/bin/bash
+
+##################################################################
+#
+# Descarga los frozen del día indicado y los descomprime mostrando los ficheros que tienen frozen para revisar.
+# 
+##################################################################
+
+set -e 
+
+cd ~/frozen/comunica
+
+mkdir current
+cd current
+
+DATE=$1
+scp desarrollo@techies.hosting.iubaris.com:/data/auloce/gestiona/bus/pro/exports/bus-01/integrations/comunica/comunica_frozen_$DATE.tar.gz frozen.tar.gz
+
+tar -zxvf frozen.tar.gz
+rm -rf frozen.tar.gz
+
+ls -l > list.txt
+
+echo "Revisado colas con frozen..."
+
+while read line;
+do 
+				
+				SIZE=$(echo -e $line | awk '{print $5}')
+				NAME=$(echo -e $line | awk '{print $9}')
+			#	echo "$NAME : $SIZE"
+
+
+				if [[ "$NAME" == "list.txt" ]]; then
+								# Saltamos el fichero que estamos recorriendo
+								continue
+				fi
+				if [[ "$SIZE" = "2" ]]; then
+								#echo "Frozen is empty ($NAME)"
+								rm $NAME
+								continue
+				fi
+
+done < list.txt
+
+rm -rf list.txt
+
+echo -e "\n\n Ficheros para revisar: "
+ls -l
+
