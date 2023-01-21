@@ -15,3 +15,4 @@
     ~/.config/dunst: os/linux/dunst
     ~/.config/lxterminal: os/linux/lxterminal
     ~/.config/nvim: editors/nvim
+    ~/qmk_firmware/keyboards/crkbd/keymaps/mir: keyboards/mir
