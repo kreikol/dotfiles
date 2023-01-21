@@ -1,3 +1,3 @@
 #!/bin/bash
 
-google-chrome --app=$1 &> /dev/null
+google-chrome --app=$1 &> /dev/null &

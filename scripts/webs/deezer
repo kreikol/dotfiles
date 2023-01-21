@@ -1,0 +1,5 @@
+#!/bin/bash
+
+##? Abre la aplicación web de deezer
+
+dot webs app http://deezer.com

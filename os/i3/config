@@ -259,10 +259,6 @@ assign [class="Arandr"] "Screen Layout Editor"
 assign [class="Arandr"] output primary
 for_window [title="Screen Layout Editor"] floating enable
 
-## Loss meet a un workspace propio y con floating
-assign [class="Google-chrome" title="^Meet - "] "Calls"
-for_window [class="Google-chrome" title="^Meet - "] floating enable
-
 
 ### 
 ## Lanzamiento de aplicaciones iniciales
