@@ -6,6 +6,9 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# Layout del teclado
+exec setxkbmap -variant altgr-intl
+
 # Establecemos la disposición de monitores según la ubicación
 exec /home/mruiz/.config/i3/displays-setup.sh
 
