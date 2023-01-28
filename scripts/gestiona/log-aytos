@@ -1,0 +1,31 @@
+#!/bin/bash
+
+##################################################################
+#
+# Descarga los frozen del día indicado y los descomprime mostrando los ficheros que tienen frozen para revisar.
+# 
+##################################################################
+
+set -e 
+
+cd ~/frozen/logs/aytos
+
+CLIENT=$(ls | fzf)
+cd $CLIENT
+
+# LOGS ACTUALES
+if [ "$#" -eq "0" ];then
+	rm -rf current
+	scp -r sistemas:/data/auloce/gestiona/rpa/pro/logs/rpa-cube-$CLIENT-vpn/rpa-cont-aytos/current .
+	nvim current/main.log	+
+	exit 0
+
+fi
+
+# LOGS DEL DIA INDICADO
+DATE=$1
+file=main.$DATE.log.gz
+scp sistemas:/data/auloce/gestiona/rpa/pro/logs/rpa-cube-$CLIENT-vpn/rpa-cont-aytos/daily/$file .
+gzip -d $file
+
+
