@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Saca la lista de cambios entre dos versiones del repositoio
+##? IMPORTANTE: No usar la etiqueta tip como latest.
+##?
+##? Usage:
+##?   changelog <previous> <latest>
+docs::parse "$@"
+
+
+
+previous=$1
+latest=$2
+
+echo "Lista de cambios entre $previous y $latest"
+
+hg log -r "ancestors('$latest') and not ancestors($previous)" | grep RESOLVED -B4 
