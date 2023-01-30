@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Lista de los projectos disponibles en local
+##?
+##? Usage:
+##?    projects [<name_project>]
+docs::parse "$@"
+
+source $DOTFILES_PATH/shell/functions.sh
+
+function ask_action () {
+
+	# Options 
+	a_code=" Code" 
+	a_redmine=" Redmine" 
+	a_history=" History" 
+
+	action=$(echo -e "$a_code\n$a_redmine\n$a_history" | fzf)
+}
+
+# echo "Name project recibed: $name_project."
+if [ -z "$name_project" ] ; then
+	# sacamos el selector de proyectos
+	# project=$(ls "$TECH_PROJECTS" | fzf --preview='tech::projects::showInfo {}')
+	project=$(ls "$TECH_PROJECTS" | fzf --preview='cat $TECH_PROJECTS/{}')
+else
+	# se ha indicado proyecto
+	project=$name_project
+fi
+
+echo "Selected project: $project."
+tech::projects::showInfo $project > /dev/null
+
+# declare -A projectData
+# projectData=( 
+# 	["name"]="$name"
+# 	["redmine"]="$redmine"
+# 	["repo"]="$repo"
+# )
+
+ask_action $project
+
+case "$action" in 
+
+	$a_code)
+		echo "Open IntellJ $name" 
+		intellij &>/dev/null & 
+		;;
+		
+	$a_redmine)
+		echo "open redmine $redmine"
+		dot webs redmine $redmine
+		;;
+
+	$a_history)
+		echo "open webs app $repo"
+		dot webs app $repo
+		;;
+
+	*)
+		echo "errooooooorrr"
+		exit 1
+		;;
+
+esac
+

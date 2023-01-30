@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#
+# Backup de los .tech-projects actuales
+#
+
+# cd $TECH_PROJECTS
+# ls $PWD | xargs -I_ mv _ _.old
+# echo 'backup done'
+
+
+function repo_type() {
+	cd "$TECH_PROJECTS_CODE/$1"
+
+	if [ -d .git ]; then
+		repotype="git"
+		n=$(grep url $TECH_PROJECTS_CODE/$1/.git/config | awk -F '/' '{print $4}')
+	fi
+
+	if [ -d .hg ]; then
+		repotype="hg"
+		n=$(grep default $TECH_PROJECTS_CODE/$1/.hg/hgrc | awk -F '/' '{print $4}' | head -n 1)
+	fi
+
+	echo -e "$repotype: $n" >> $TECH_PROJECTS/$1
+}
+
+function initTechProject () {
+	echo "....."
+	echo $1
+	echo -e "$1\n" > $TECH_PROJECTS/$1
+}
+
+function redmine () {
+echo -e "redmine: $1" >> $TECH_PROJECTS/$1
+
+}
+
+set -xe 
+
+export -f initTechProject
+export -f repo_type
+export -f redmine
+
+# Creo el fichero cn el nombre
+ls $TECH_PROJECTS_CODE | xargs -I _ bash -c 'initTechProject _'
+# relleno los Metadatos
+ls $TECH_PROJECTS_CODE | xargs -I {} bash -c 'repo_type {}' 
+ls $TECH_PROJECTS_CODE | xargs -I {} bash -c 'redmine {}' 
