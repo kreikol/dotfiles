@@ -4,10 +4,10 @@
 if /home/mruiz/.dotfiles/scripts/utils/athome; then
 # if [[ $(/home/mruiz/.dotfiles/scripts/utils/athome) ]]; then
 	echo 'Estoy en casa' 	
-	# /home/mruiz/.screenlayout/home.display
+	/home/mruiz/.screenlayout/home.display
 else
 	echo 'Estoy en la oficina' 
-	# /home/mruiz/.screenlayout/office.display
+	/home/mruiz/.screenlayout/office.display
 fi
 
 pkill feh
