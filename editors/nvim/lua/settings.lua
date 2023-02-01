@@ -6,12 +6,17 @@ local wo = vim.wo 	-- opciones de ventanas
 local bo = vim.bo 	-- opciones de buffers
 local gs = vim.g 	-- opciones globales
 
--- Cuando se copia de nvim, va al click central y al Ctrl+C. 
+-- Cuando se copia de nvim (Yank), va al click central y al Ctrl+C. 
 -- Cuando se pega en nvim, están disponibles los dos, con el valor que haya en 
 -- cada uno.
-vim.cmd (' set clipboard+=unnamedplus ')
-vim.cmd (' set clipboard+=unnamed ')
 
+vim.cmd ('set clipboard+=unnamedplus')
+vim.cmd ('set clipboard+=unnamed')
+
+-- No copia el caracter eliminado en el registro
+vim.keymap.set({'n', 'x'}, 'x', '"_x')
+
+o.mouse = a
 o.hidden = true
 
 o.number = true
