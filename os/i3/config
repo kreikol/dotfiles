@@ -170,13 +170,14 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-
 # 
 # MIR
 #
 
+bindsym Mod1+f exec keepassxc
 bindsym $mod+e exec thunar
-bindsym $mod+w exec "ls /home/mruiz/.dotfiles/scripts/webs | dmenu -i -p 'Seleciona app:'"
+bindsym $mod+w exec ls /home/mruiz/.dotfiles/scripts/webs | dmenu -i -p 'Seleciona app:' | xargs -I_ /home/mruiz/.dotfiles/scripts/webs/_
+# bindsym $mod+w exec ~/.config/i3/launch-webs.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
