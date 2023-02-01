@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$DOTLY_PATH/scripts/core/_main.sh"
 
-##? Abre mi diario actual con NeoVim
+##? Actualiza el diario y abre mi diario actual con NeoVim
 ##?
 ##? Usage:
 ##?    open
@@ -12,5 +12,7 @@ docs::parse "$@"
 
 cd $TECH_DIARY
 YEAR=$(date +"%Y")
+
+git pull
 
 nvim $TECH_DIARY/developers/mruiz/$YEAR.md +
