@@ -45,8 +45,8 @@ export TECH_PROJECTS="$TECH_WORKSPACE/.tech-projects"
 export TECH_PROJECTS_CODE="$TECH_WORKSPACE/Proyectos"
 
 export TECH_REDMINE=https://redmine.g3stiona.com/redmine
-export TECH_GIT_WEB=https://git-central.g3stiona.com/git
-export TECH_HG_WEB=https://hg-central.g3stiona.com/hg
+export TECH_GIT_WEB=http://git-central.g3stiona.com/git
+export TECH_HG_WEB=http://hg-central.g3stiona.com/hg
 
 
 
