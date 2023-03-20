@@ -54,6 +54,9 @@ require('packer').startup(function(use)
 	-- use { 'scuilion/markdown-drawer' }
 	
 	use { 'MattesGroeger/vim-bookmarks' }
+
+	-- diffview
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	
 	if packer_bootstrap then
 	     require('packer').sync()
