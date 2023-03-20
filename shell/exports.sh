@@ -72,6 +72,7 @@ path+=(
 	"/sbin"
 	"$HOME/Applications/bin"
 	"$HOME/Applications/node/bin"
+	"%HOME/Applications/p4v/bin"
 )
 
 export path
