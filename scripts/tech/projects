@@ -33,7 +33,7 @@ else
 fi
 
 echo "Selected project: $project."
-tech::projects::showInfo $project > /dev/null
+tech::projects::showInfo $project 
 
 # declare -A projectData
 # projectData=( 
@@ -47,13 +47,23 @@ ask_action $project
 case "$action" in 
 
 	$a_code)
-		echo "Open IntellJ $name" 
-		intellij &>/dev/null & 
+		if [[ "false" = "$dotnet" ]] ; then
+			echo "Open project with IDE IntelliJ" 
+			intellij $TECH_PROJECTS_CODE/$project &>/dev/null & 
+		fi
+		if [[ "true" = "$dotnet" ]] ; then
+			echo "Open project with IDE Rider" 
+			# es un proyecto de NET, abrimos con el Rider
+			rider $TECH_PROJECTS_CODE/$project &>/dev/null & 
+		fi
+
+		echo "IDE abierto"
+
 		;;
 		
 	$a_redmine)
 		echo "open redmine $redmine"
-		dot webs redmine $redmine
+		dot webs app $redmine
 		;;
 
 	$a_history)

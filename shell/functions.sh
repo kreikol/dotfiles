@@ -18,6 +18,12 @@ function recent_dirs() {
 	cd "$(echo "$selected" | sed "s/\~/$escaped_home/")" || echo "Invalid directory"
 }
 
+function meet() {
+	id=$1
+	dot webs app https://meet.google.com/$id
+
+}
+
 function tech::projects::isGit() {
 	count=$(grep -i git $TECH_PROJECTS/$1 | wc -l)
 	echo $count
@@ -25,29 +31,64 @@ function tech::projects::isGit() {
 }
 
 function tech::projects::showInfo() {
-	# Metadatos del proyecto
-	file="$TECH_PROJECTS/$1"
-	if [ ! -f $file ] ; then
-		echo "No ha informacion del tech-project"
-		exit 1
-	fi
+		set -ex
+		echo "[$1]" 
+		# Metadatos del proyecto
+		file="$TECH_PROJECTS/$1"
+		if [ ! -f $file ] ; then
+			echo "No ha informacion del tech-project"
+			exit 1
+		fi
 
-	name=$(head -n 1 $file)
-	redmine_id=$(grep -i 'redmine' $file | awk -F ':' '{print $2}')
-	redmine="$TECH_REDMINE/projects/$1/issues"
+		name=$(head -n 1 $file)
+		redmine_id=$(grep -i '^redmine' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+		redmine="$TECH_REDMINE/projects/$redmine_id/issues"
 
+		dotnet=$(grep -i '^dotnet' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
 
-	echo ":: Tech Project info :: $name"
-	echo $file
-	echo $redmine
+		echo ":: Tech Project info :: $name"
+		echo $file
+		echo $redmine
+		echo $dotnet
 
-	if [[ $(tech::projects::isGit $1) == 1 ]] ; then
-		repo=$TECH_GIT_WEB/$1.git
-		echo GIT!
-	else 
-		echo HG
-		repo=$TECH_HG_WEB/$1
-	fi 
+		if [[ $(tech::projects::isGit $1) == 1 ]] ; then
+			namerepo=$(grep -i '^git' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+			repo=$TECH_GIT_WEB/$namerepo.git
+			echo GIT!
+		else 
+			echo HG
+			namerepo=$(grep -i '^hg' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+			repo=$TECH_HG_WEB/$namerepo/
+		fi 
 
 }
 
+function kreikol::utils::inGUI () {
+
+set +u # para que no de error si la variable no esta seteada
+if [ -z $DISPLAY ]; then
+	echo 'no hay desktop'
+	return 1;
+else
+	echo 'Estamos en entorno grafico con monitor'
+	return 0;
+fi
+}
+
+function kreikol::utils::selector () {
+	opts=($@)
+	# echo "n recibidas: ${#opts[@]}"
+	# echo "recibidas: ${opts[@]}"
+	# echo "0: ${opts[0]}"
+	unset opts[0]
+	# echo "modificads ${opts[@]}"
+
+	if kreikol::utils::inGUI >/dev/null; then
+		# echo 'abrimos dmenu'
+		selected=$(echo ${opts[@]} | sed s/\ /\\n/g| dmenu -i -p $1)
+	else
+		# echo 'abrimos fzf'
+		selected=$(echo ${opts[@]} | sed s/\ /\\n/g| fzf --prompt $1)
+	fi
+	echo $selected
+}
