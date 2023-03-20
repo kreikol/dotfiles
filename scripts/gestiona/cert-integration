@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Genera un certificado para un integración
+##? 
+##?
+##? Usage:
+##?   cert-integration <name> 
+docs::parse "$@"
+
+
+
+name=$1
+
+cd $HOME/Downloads
+
+if [[ -d cert-$name ]]; then
+	echo "Ya hay un certificado generado con ese nombre, lo machacamos"
+	rm -rf cert-$name
+fi
+
+mkdir cert-$name
+
+cd cert-$name
+
+openssl genrsa -out ca-$name.key 2048
+
+openssl req -x509 -new -nodes -key ca-$name.key -sha256 -days 1024 -out ca-$name.pem
+
+openssl pkcs12 -export -name server-cert \
+               -in ca-$name.pem -inkey ca-$name.key \
+               -out keystore-$name.p12
+
+
