@@ -32,3 +32,5 @@ alias i.='(idea $PWD &>/dev/null &)'
 alias c.='(code $PWD &>/dev/null &)'
 alias o.='(thunar $PWD &>/dev/null &)'
 alias up='dot package update_all'
+
+alias dd='dot diary open'
