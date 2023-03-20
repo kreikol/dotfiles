@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+source "$DOTFILES_PATH/shell/functions.sh"
+
+##? Lanza la VM seleccionada
+##?
+##? Usage:
+##?    vm-launcher
+docs::parse "$@"
+
+set -e
+cd ~/VirtualBox-VMs
+
+# vm=$(ls | dmenu -i -p "Elige la VM para arrancar")
+title="Current-VMs"
+options=($(ls -l | awk '{print $9}'))
+echo "opciones ${options[@]}"
+echo "n opciones ${#options[@]}"
+sel=$(kreikol::utils::selector $title ${options[@]})
+
+echo "VM sel : $sel"
+# VBoxManage startvm $vm
+
+# i3-nagbar -m "$vm iniciándose" -t warning
