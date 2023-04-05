@@ -53,7 +53,7 @@ function tech::projects::showInfo() {
 
 		if [[ $(tech::projects::isGit $1) == 1 ]] ; then
 			namerepo=$(grep -i '^git' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
-			repo=$TECH_GIT_WEB/$namerepo.git
+			repo=$TECH_GIT_WEB/?p=$namerepo.git
 			echo GIT!
 		else 
 			echo HG
