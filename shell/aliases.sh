@@ -34,3 +34,5 @@ alias o.='(thunar $PWD &>/dev/null &)'
 alias up='dot package update_all'
 
 alias dd='dot diary open'
+alias notion='dot webs notion'
+alias tp='dot tech projects'
