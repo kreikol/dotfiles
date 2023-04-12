@@ -179,9 +179,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # MIR
 #
 
-bindsym Mod1+f exec keepassxc
+bindsym control+f exec keepassxc
 bindsym $mod+e exec thunar
-bindsym $mod+w exec ls /home/mruiz/.dotfiles/scripts/webs | dmenu -i -p 'Seleciona app:' | xargs -I_ /home/mruiz/.dotfiles/scripts/webs/_
+bindsym $mod+w exec qutebrowser
+# bindsym $mod+w exec ls /home/mruiz/.dotfiles/scripts/webs | dmenu -i -p 'Seleciona app:' | xargs -I_ /home/mruiz/.dotfiles/scripts/webs/_
 # bindsym $mod+w exec ~/.config/i3/launch-webs.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -196,16 +197,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym control+Mod4+BackSpace exec shutdown now
 # Bloquear pantalla Ctrl + Suoer + L  
 bindsym control+Mod4+l exec dm-tool lock
-# Suspender (no quiero suspender tan solo con el MOD!!)
-#bindsym $mod+l exec systemctl suspend
 
 # menú para seleccionar configuración de monitores
 bindsym $mod+p exec ~/.config/i3/monitors.sh
 
 # conexión a las VPNs
 bindsym $mod+c exec ~/.config/i3/vpns.sh
-
-
 
 # bindsym $mod+b exec --no-startup-id bluetooth-dmenu
 bindsym $mod+b exec --no-startup-id dmenu-bluetooth
