@@ -48,8 +48,15 @@ case "$action" in
 
 	$a_code)
 		if [[ "false" = "$dotnet" ]] ; then
-			echo "Open project with IDE IntelliJ" 
-			intellij $TECH_PROJECTS_CODE/$project &>/dev/null & 
+
+			if [[ "false" = "$isWorkspace" ]] ; then
+				echo "Open project with IDE IntelliJ" 
+				intellij $TECH_PROJECTS_CODE/$project &>/dev/null & 
+			else
+				echo "Open workspace with IDE IntelliJ" 
+				intellij $TECH_WORKSPACE/$project &>/dev/null & 
+			fi
+
 		fi
 		if [[ "true" = "$dotnet" ]] ; then
 			echo "Open project with IDE Rider" 

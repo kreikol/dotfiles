@@ -46,10 +46,13 @@ function tech::projects::showInfo() {
 
 		dotnet=$(grep -i '^dotnet' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
 
+		isWorkspace=$(grep -i '^isWorkspace' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+
 		echo ":: Tech Project info :: $name"
 		echo $file
 		echo $redmine
 		echo $dotnet
+		echo $isWorkspace
 
 		if [[ $(tech::projects::isGit $1) == 1 ]] ; then
 			namerepo=$(grep -i '^git' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
