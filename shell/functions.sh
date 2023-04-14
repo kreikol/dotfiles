@@ -46,7 +46,13 @@ function tech::projects::showInfo() {
 
 		dotnet=$(grep -i '^dotnet' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
 
-		isWorkspace=$(grep -i '^isWorkspace' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+		if grep -q isWorkspace $file; then
+			isWorkspace=true
+			echo "Es un Workspace"
+		else
+			isWorkspace=false
+			echo "NO es un workspace"
+		fi
 
 		echo ":: Tech Project info :: $name"
 		echo $file
