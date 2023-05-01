@@ -6,10 +6,15 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-exec /home/mruiz/.screenlayout/laptop.display
+# exec /home/mruiz/.screenlayout/laptop.display
 
 # Layout del teclado
 exec setxkbmap -variant altgr-intl
+
+# Lanzdo el daemon del gestor de portapapeles (greenclip)
+exec greenclip daemon
+# shortcut portapapeles
+bindsym $mod + F4 exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{xclip -o -sel clip}' 
 
 # Establecemos la disposición de monitores según la ubicación
 exec /home/mruiz/.config/i3/displays-setup.sh
