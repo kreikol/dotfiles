@@ -30,6 +30,7 @@ net-tools
 openssh-server
 picom
 pulseaudio
+rofi
 suckless-tools
 sysvinit-utils
 tldr

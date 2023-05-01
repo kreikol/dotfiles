@@ -16,4 +16,5 @@
     ~/.config/lxterminal: os/linux/lxterminal
     ~/.config/nvim: editors/nvim
     ~/.config/qutebrowser: browsers/qutebrowser
+    ~/.config/greenclip.toml: os/linux/greenclip/greenclip.toml
     ~/qmk_firmware/keyboards/crkbd/keymaps/mir: keyboards/mir
