@@ -1,3 +1,0 @@
-#!/bin/bash
-
-dot webs app http://jenkins-integrations.g3stiona.com:8080/

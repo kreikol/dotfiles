@@ -1,5 +1,0 @@
-#!/bin/bash
-
-##? Abre la aplicación web de notion
-
-dot webs app https://www.notion.so
