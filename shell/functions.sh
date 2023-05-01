@@ -20,7 +20,7 @@ function recent_dirs() {
 
 function meet() {
 	id=$1
-	dot webs app https://meet.google.com/$id
+	qutebrowser https://meet.google.com/$id --target window 
 
 }
 

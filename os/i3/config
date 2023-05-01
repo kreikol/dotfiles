@@ -179,7 +179,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # MIR
 #
 
-bindsym control+f exec keepassxc
+bindsym $mod+Shift+f exec keepassxc
 bindsym $mod+e exec thunar
 bindsym $mod+w exec qutebrowser
 # bindsym $mod+w exec ls /home/mruiz/.dotfiles/scripts/webs | dmenu -i -p 'Seleciona app:' | xargs -I_ /home/mruiz/.dotfiles/scripts/webs/_

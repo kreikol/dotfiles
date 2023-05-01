@@ -57,6 +57,13 @@ require('packer').startup(function(use)
 
 	-- diffview
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+	-- orgmode
+	use {'nvim-treesitter/nvim-treesitter'}
+	use {'nvim-orgmode/orgmode', config = function()
+		require('orgmode').setup{}
+	end
+}
 	
 	if packer_bootstrap then
 	     require('packer').sync()

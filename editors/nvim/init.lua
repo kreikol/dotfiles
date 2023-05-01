@@ -11,6 +11,7 @@ require ('plugins/coc-nvim')
 -- require ('plugins/indent-line')
 require ('plugins/lualine')
 require ('plugins/vim-bookmarks')
+require ('plugins/orgmode')
 require ('keymaps')
 vim.cmd ('source ~/.config/nvim/lua/macros.vim')
 
