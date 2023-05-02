@@ -41,3 +41,6 @@ c.url.searchengines['redmine'] = 'https://redmine.g3stiona.com/redmine/issues/{}
 
 ## Traductor Google
 c.url.searchengines['tt'] = 'https://translate.google.es/?hl=es&sl=en&tl=es&text={}%0A&op=translate'
+
+## Atareao
+c.url.searchengines['at'] = 'https://atareao.es/?s={}'
