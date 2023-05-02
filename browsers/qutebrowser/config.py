@@ -39,6 +39,9 @@ c.url.searchengines['DEFAULT'] = 'https://google.es/search?q={}'
 ## Redmine
 c.url.searchengines['redmine'] = 'https://redmine.g3stiona.com/redmine/issues/{}'
 
+## Nexus
+c.url.searchengines['nx'] = 'http://ee-nexus.g3stiona.com:8081/nexus/#browse/search=keyword%3D{}'
+
 ## Traductor Google
 c.url.searchengines['tt'] = 'https://translate.google.es/?hl=es&sl=en&tl=es&text={}%0A&op=translate'
 
