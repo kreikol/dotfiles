@@ -70,12 +70,12 @@ case "$action" in
 		
 	$a_redmine)
 		echo "open redmine $redmine"
-		dot webs app $redmine
+		qutebrowser --target window $redmine
 		;;
 
 	$a_history)
 		echo "open webs app $repo"
-		dot webs app $repo
+		qutebrowser --target window $repo
 		;;
 
 	*)
