@@ -1,0 +1,66 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Acciones para el mantenimiento de las VMs de los guiones
+##?
+##? Usage:
+##?    vm <action> <name>
+docs::parse "$@"
+
+function ask_host () {
+
+
+	host=$(echo -e "13\n14\n29\n247" | fzf --prompt "Selecciona el HOST: ")
+}
+
+
+function ask_slot() {
+
+	list=$(ssh qa-$host "cat slots.ips")
+	slotip=$(echo -e "$list" | fzf --prompt "Selecciona el HOST: ")
+	slot=$(echo $slotip | awk -F '.' '{print $4}')
+
+	echo "Slot seleccionado: $slot - $slotip"
+}
+
+# ACTIONS 
+a_create="create" 
+a_stop="stop" 
+a_delete="delete" 
+
+echo "Guión $name: $action VM"
+
+ask_host
+
+case "$action" in 
+
+	$a_create)
+
+		ask_slot
+		$(time ssh qa-h$host "sudo createvm.sh $name $slot")
+		echo "$name : VM created. Will to open Jenkins"
+		qutebrowser --target window http://$slotip:8081
+		;;
+		
+	$a_stop)
+
+		echo $(time ssh qa-h$host "sudo virsh destroy $name")
+		echo "$name : VM stoped"
+		;;
+		
+	$a_delete)
+		echo $(time ssh qa-h$host "sudo deletevm.sh $name")
+		echo "$name : VM stoped and deleted"
+		;;
+
+
+	*)
+		echo "VM Action not implemented"
+		exit 1
+		;;
+
+esac
+
