@@ -16,6 +16,9 @@ exec greenclip daemon
 # shortcut portapapeles
 bindsym $mod + F4 exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{xclip -o -sel clip}' 
 
+# cambiar de ventanas
+bindsym Mod1 + Tab exec rofi -show
+
 # Establecemos la disposición de monitores según la ubicación
 exec /home/mruiz/.config/i3/displays-setup.sh
 
