@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Muestra/oculta la chuleta del keyboard corne
+##?
+##? Usage:
+##?    sheet
+docs::parse "$@"
+
+cd ~/Pictures
+filePid="sheetkb.pid"
+echo $filePid
+
+if [ -f $filePid ]; then
+	echo "Cerramos la chuleta"
+	PID=$(head $filePid -1 | awk '{print $2}')
+	echo pid: $PID
+	# sudo kill $PID
+	pkill feh
+	rm -rf $filePid
+
+else
+	echo "Abrimos la chuleta"
+	feh ~/Pictures/corne-sheet.png &> $filePid
+	# feh ~/Pictures/keyboard-us.png &> $filePid
+	
+fi
+
