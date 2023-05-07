@@ -71,9 +71,8 @@ path+=(
 	"/usr/bin"
 	"/usr/sbin"
 	"/sbin"
-	"$HOME/Applications/bin"
-	"$HOME/Applications/node/bin"
-	"%HOME/Applications/p4v/bin"
+	"$HOME/Applications/node/current/bin"
+	"$HOME/Applications/p4v/current/bin"
 )
 
 export path

@@ -18,3 +18,8 @@
     ~/.config/qutebrowser: browsers/qutebrowser
     ~/.config/greenclip.toml: os/linux/greenclip/greenclip.toml
     ~/qmk_firmware/keyboards/crkbd/keymaps/mir: keyboards/mir
+    $DOTFILES_PATH/bin/dotnet: $APPS_DIR/dotnet/current/dotnet
+    $DOTFILES_PATH/bin/greenclip: $APPS_DIR/greenclip/current/greenclip
+    $DOTFILES_PATH/bin/intellij: $APPS_DIR/IntelliJ/current/bin/idea.sh
+    $DOTFILES_PATH/bin/nvim: $APPS_DIR/neovim/current/bin/nvim
+    $DOTFILES_PATH/bin/postman: $APPS_DIR/Postman/current/Postman
