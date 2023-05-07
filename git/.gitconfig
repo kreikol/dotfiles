@@ -16,3 +16,4 @@
 	prune = true
 [core]
 	autocrlf = input
+        editor = nvim

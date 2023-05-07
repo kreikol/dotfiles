@@ -10,7 +10,7 @@ source "$DOTLY_PATH/scripts/core/_main.sh"
 ##?    projects [<name_project>]
 docs::parse "$@"
 
-source $DOTFILES_PATH/shell/functions.sh
+source "$DOTFILES_PATH/scripts/tech/utils/projects.sh"
 
 function ask_action () {
 
@@ -24,8 +24,6 @@ function ask_action () {
 
 # echo "Name project recibed: $name_project."
 if [ -z "$name_project" ] ; then
-	# sacamos el selector de proyectos
-	# project=$(ls "$TECH_PROJECTS" | fzf --preview='tech::projects::showInfo {}')
 	project=$(ls "$TECH_PROJECTS" | fzf --preview='cat $TECH_PROJECTS/{}')
 else
 	# se ha indicado proyecto
