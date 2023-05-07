@@ -34,6 +34,7 @@ export FZF_DEFAULT_OPTS="--color=$fzf_colors --reverse"
 # Machine data
 # ------------------------------------------------------------------------------
 export ATHOME_IP=192.168.1.212
+export APPS_DIR="$HOME/Applications"
 
 # ------------------------------------------------------------------------------
 # EsPublico Tech Utils
