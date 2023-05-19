@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Saca la lista de tareas RESOLVED entre dos versiones, formateada para el ticket de version.
+##? IMPORTANTE: No usar la etiqueta tip como latest.
+##?
+##? Usage:
+##?   changelog <previous> <latest>
+docs::parse "$@"
+
+
+
+previous=$1
+latest=$2
+
+echo "Lista de cambios: \n"
+echo "================= "
+echo "Tareas realizadas entre $previous y $latest"
+echo "================= "
+
+hg log -r "ancestors('$latest') and not ancestors($previous)" | grep RESOLVED | sed 's/summary: //g'
+# hg log -r "ancestors('$latest') and not ancestors($previous)" | grep RESOLVED | awk -F ':' '{print $1}'
