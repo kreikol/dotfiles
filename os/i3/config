@@ -6,7 +6,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# exec /home/mruiz/.screenlayout/laptop.display
+# Establecemos la disposición de monitores según la ubicación
+exec_always --no-startup-id /home/mruiz/.config/i3/displays-setup.sh
 
 # Layout del teclado
 exec setxkbmap -variant altgr-intl
@@ -18,9 +19,6 @@ bindsym $mod + F4 exec rofi -modi "clipboard:greenclip print" -show clipboard -r
 
 # cambiar de ventanas
 bindsym Mod1 + Tab exec rofi -show
-
-# Establecemos la disposición de monitores según la ubicación
-exec /home/mruiz/.config/i3/displays-setup.sh
 
 # Wallpaper
 exec_always feh --bg-fill ~/.config/i3/background.png
@@ -336,7 +334,6 @@ bar {
 	workspace_min_width 15
 
 }
-
 
 #
 #
