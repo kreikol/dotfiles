@@ -26,6 +26,11 @@ c.tabs.position = "top"
 # Tema
 config.source('themes/manjaro.py')
 
+# Tamaño de letra
+c.fonts.default_size = "14pt"
+c.fonts.web.size.default = 14
+c.zoom.default = 125
+
 c.url.start_pages = ['http://google.es']
 
 
