@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Show with rofi a selector clipboard items
+##?
+##? Usage:
+##?    list
+docs::parse "$@"
+
+rofi -modi "clipboard:greenclip print" -show clipboard -run-command 'xclip -o -sel clip' 
+
+xsel -ob

@@ -23,3 +23,6 @@
 [submodule "shell/zsh/.zim/modules/zsh-syntax-highlighting"]
 	path = shell/zsh/.zim/modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "scripts/emojis/emojipedia"]
+	path = scripts/emojis/emojipedia
+	url = git@github.com:santakadev/emojipedia.git

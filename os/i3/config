@@ -15,10 +15,14 @@ exec setxkbmap -variant altgr-intl
 # Lanzdo el daemon del gestor de portapapeles (greenclip)
 exec greenclip daemon
 # shortcut portapapeles
-bindsym $mod + F4 exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{xclip -o -sel clip}' 
+bindsym $mod + F4 exec dot clipboard list
+# rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{xclip -o -sel clip}' 
 
 # cambiar de ventanas
 bindsym Mod1 + Tab exec rofi -show
+
+# selector de emojis
+bindsym Mod1 + e exec dot emojis pick
 
 # Wallpaper
 exec_always feh --bg-fill ~/.config/i3/background.png
