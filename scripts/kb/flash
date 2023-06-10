@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Flashea el mitad izquierd del Corne
+##?
+##? Usage:
+##?    flash
+docs::parse "$@"
+
+cd $HOME/keyboard/toFlash
+sudo rm -rf *
+
+mv $HOME/Downloads/firmware.zip $HOME/keyboard/toFlash/.
+unzip firmware.zip
+
+# TODO: Montar el la unidad USB
+
+cp corne_left-nice_nano_v2-zmk.uf2 /media/mruiz/NICENANO/.
+
+
+
+
