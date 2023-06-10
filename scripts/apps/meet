@@ -7,7 +7,7 @@ source "$DOTLY_PATH/scripts/core/_main.sh"
 ##? Open meet in browser
 ##?
 ##? Usage:
-##?    meet <id>
+##?    meet [<id>]
 docs::parse "$@"
 
 qutebrowser https://meet.google.com/$id --target window
