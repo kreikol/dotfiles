@@ -1,0 +1,15 @@
+syntax:glob
+
+.gitignore
+.*
+*.iml
+idea/**/*
+
+**/target/*
+
+**/**/*.log
+
+# Config personal
+**/**/config/personal/*
+**/**/cfg/personal/*
+
