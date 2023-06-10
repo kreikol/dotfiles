@@ -10,6 +10,8 @@
     ~/.profile: shell/profile
     ~/.screenlayout: os/linux/screenlayout
     ~/wallpaper.jpg: images/wallpaper.jpg
+    ~/.gitconfig: git/.gitconfig
+    ~/.gitignore-global: git/gitignore-global
     ~/.config/i3: os/i3
     ~/.config/gtk-3.0: os/linux/x/gtk-3.0
     ~/.xinitrc: os/linux/x/.xinitrc
