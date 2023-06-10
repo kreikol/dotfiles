@@ -16,4 +16,5 @@
 	prune = true
 [core]
 	autocrlf = input
-        editor = nvim
+  editor = nvim
+	excludesfile = ~/.gitignore-global
