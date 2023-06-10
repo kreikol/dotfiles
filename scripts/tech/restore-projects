@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -eo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Restaura todos los tech-projects, haciendo el clone del repositorio
+##?
+##? Usage:
+##?    restore-projects [<name_project>]
+docs::parse "$@"
+
+source "$DOTFILES_PATH/scripts/tech/utils/projects.sh"
+
+# echo "Name project recibed: $name_project."
+if [ -z "$name_project" ] ; then
+	project=$(ls "$TECH_PROJECTS" | fzf --preview='cat $TECH_PROJECTS/{}')
+else
+	# se ha indicado proyecto
+	project=$name_project
+fi
+
+echo ""
+echo "[[ $project ]]"
+echo "___________________________________________________________________________"
+tech::projects::showInfo $project  >/dev/null 2>&1
+
+if [[ "false" = "$isWorkspace" ]] ; then
+	echo "    Es un proyecto vamos a clonarlo del respositorio" 
+else
+	echo "    SKIP: Es un workspace de una tarea, no hay nada que restaurar" 
+	exit 0
+fi
+
+if [[ $(tech::projects::isGit $1) == 1 ]] ; then
+	comand="git"
+	nameToClone="$namerepo.git"
+	cvsServer=git@git-central.g3stiona.com/
+else
+	comand="hg"
+	nameToClone=$namerepo
+	cvsServer=hg@hg-central.g3stiona.com/
+fi
+
+echo -e "    Iniciando clone ... \n  $comand clone ssh://$cvsServer$nameToClone $name_project"
+
+cd "$TECH_PROJECTS_CODE"
+$comand clone ssh://$cvsServer$nameToClone $name_project
+
+projectPath=$(echo "$PWD/$name_project")
+echo "--- Proyecto restuarado con éxito en $projectPath ---"
+
+
+

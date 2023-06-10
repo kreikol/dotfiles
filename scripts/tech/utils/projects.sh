@@ -3,12 +3,12 @@
 source "$DOTFILES_PATH/scripts/_core/ui.sh"
 
 function tech::projects::showInfo() {
-		set -ex
+		set -e
 		echo "[$1]" 
 		# Metadatos del proyecto
 		file="$TECH_PROJECTS/$1"
 		if [ ! -f $file ] ; then
-			echo "No ha informacion del tech-project"
+			echo "No hay informacion del tech-project"
 			exit 1
 		fi
 
@@ -16,9 +16,15 @@ function tech::projects::showInfo() {
 		redmine_id=$(grep -i '^redmine' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
 		redmine="$TECH_REDMINE/projects/$redmine_id/issues"
 
-		dotnet=$(grep -i '^dotnet' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+		if grep -qi '^dotnet:' $file; then
+			echo "Es un proyecto de dotnet"
+			dotnet=$(grep -i '^dotnet' $file | awk -F ':' '{print $2}' | tr -d '[[:space:]]')
+		else
+			echo "Es un proyecto Java"
+			dotnet=""
+		fi
 
-		if grep -q isWorkspace $file; then
+		if grep -qi '^isWorkspace' $file; then
 			isWorkspace=true
 			echo "Es un Workspace"
 		else
