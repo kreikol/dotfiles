@@ -1,0 +1,82 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Prepara un sandbox para pasar guión de QA
+##?
+##? Usage:
+##?    clone [<branch>] 
+docs::parse "$@"
+
+if [ -z "$branch" ];
+then
+	# TODO comprobar si estás en el directorio de sandbox o no
+	cd sandbox
+	BRANCH=$(git branch --show-current)
+	isNew=false
+else 
+
+	isNew=true
+
+				echo "Inicializamos el nuevo sandbox: $branch"
+				# Si se indica rama, hay que inicializar el sandbox, haciendo el clone y creando la rama
+				git clone ssh://git@git-central.g3stiona.com/gestiona-qa-sandbox.git sandbox
+
+				cd sandbox
+				git branch $branch
+				git checkout $branch
+				git status
+
+				BRANCH=$branch
+				echo "Sandbox $BRANCH inicializado"
+fi
+
+CURRENT=`pwd`
+echo $CURRENT
+
+echo "Actualizando script sanboxes ..."
+
+cd $TECH_PROJECTS_CODE/qa-sandboxes
+git pull
+
+echo "Script sanboxes actualizado "
+
+gum style --border=normal "Generación del sandbox: $BRANCH"
+
+# Ejecutamos la generación del sandbox
+cd ~/GUtils/_creating-sandbox
+rm -rf calculate.log
+rm -rf revisions.csv
+
+gum spin -s line --show-output --title "Calculando revisions ($BRANCH)" \
+	$TECH_PROJECTS_CODE/qa-sandboxes/qa-sandbox.sh qa > calculate.log
+
+cp revisions.csv $CURRENT
+
+echo "Fichero revisions.csv generado en $CURRENT"
+
+# Commitemos la actualización de las revisiones de sandbox
+cd $CURRENT 
+git add revisions.csv
+ACTION=""
+if [[ $isNew ]]; then
+			ACTION="creado"
+			git commit -m "Sandbox $BRANCH creado"
+else
+			ACTION="actualizado"
+			git commit -m "Sandbox $BRANCH actualizado" 
+fi
+
+MSG="'Sandbox $BRANCH $ACTION'"
+
+# Si lleva inicialización subimos la nueva rama
+
+if [[ $isNew ]]; then
+	git push --set-upstream origin $BRANCH
+else
+	echo "$MSG"
+fi
+
+gum style --border=normal "Terminada la generación del sandbox: $BRANCH"

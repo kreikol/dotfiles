@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Clona el repositorio de QA y se mueve al branch indicado
+##?
+##? Usage:
+##?    clone [<branch>] [<line>]
+docs::parse "$@"
+
+if [ -z "$branch" ];
+then
+   branch=master
+	 isNew=false
+else 
+	 isNew=true
+	if [ -z "$line" ]; then
+		devLine=master
+  else
+		devLine=$line
+fi
+
+
+gum spin -s line --title "Clonando QA-Gestiona ($branch)" \
+hg clone ssh://hg@hg-central.g3stiona.com/espublico-expedientes-integration-test qa
+
+cd qa
+CURRENT=`pwd`
+echo $CURRENT
+
+if [[ $isNew ]]; then
+	# nos vamos a la línea de desarrollo
+	hg update $devLine
+	# creamos el branch nuevo y lo subimos
+	hg branch $branch
+	hg commit -m "Starting branch $branch" 
+	hg push --new-branch
+	echo "branch creado"
+else
+	hg update $branch
+	echo "nos movemos a $branch, no se creana nada nuevo"
+fi
+
+# Añadimos el hgignore
+
+cp $DOTFILES_PATH/hg/hgignore .
+
+gum style --border=normal "QA-Gestiona clonnado. Branch actual: $branch "
+
+exit 0

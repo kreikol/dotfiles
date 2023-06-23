@@ -1,0 +1,20 @@
+syntax:glob
+
+.hgignore
+.*
+*.iml
+target/*
+idea/**/*
+
+*.log
+
+# Config personal
+config/personal/**/*
+cfg/personal
+cfg/personal/**/*
+
+cfg/personal-master/**/*
+cfg/personal-old/**/*
+
+desklets/*
+virtual-*/*
