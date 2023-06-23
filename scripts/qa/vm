@@ -19,7 +19,7 @@ function ask_host () {
 
 function ask_slot() {
 
-	list=$(ssh qa-$host "cat slots.ips")
+	list=$(ssh qa-h$host "cat slots.ips")
 	slotip=$(echo -e "$list" | fzf --prompt "Selecciona el HOST: ")
 	slot=$(echo $slotip | awk -F '.' '{print $4}')
 
@@ -30,6 +30,7 @@ function ask_slot() {
 a_create="create" 
 a_stop="stop" 
 a_delete="delete" 
+a_redeploy="redeploy" 
 
 echo "Guión $name: $action VM"
 
@@ -45,6 +46,13 @@ case "$action" in
 		qutebrowser --target window http://$slotip:8081
 		;;
 		
+	$a_redeploy)
+		ask_slot
+		$(time ssh qa-h$host "sudo redeploy.sh $name $slot")
+		echo "$name : VM redeployed. Will to open Jenkins"
+		qutebrowser --target window http://$slotip:8081
+		;;
+
 	$a_stop)
 
 		echo $(time ssh qa-h$host "sudo virsh destroy $name")
@@ -55,7 +63,6 @@ case "$action" in
 		echo $(time ssh qa-h$host "sudo deletevm.sh $name")
 		echo "$name : VM stoped and deleted"
 		;;
-
 
 	*)
 		echo "VM Action not implemented"
