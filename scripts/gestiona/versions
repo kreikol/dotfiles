@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+
+##? Muestras la versión que está desplegada en cada pool de los entornos productivos
+##? 
+##?
+##? Autor original: @carias
+##?
+##? Usage:
+##?   versions
+docs::parse "$@"
+
+echo "------ Producción ----------------------"
+wget -qO - https://auloce.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-00\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-01\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-02.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-02\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-03.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-03\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-04.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-04\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-05.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-05\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-06.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-06\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-07.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-07\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-08.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-08\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-09.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-09\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-10.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-10\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-11.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-11\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-12.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-12\t\t" $2 "\t" $1}'
+wget -qO - https://gestiona-org.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-org\t" $2 "\t" $1}'
+wget -qO - https://www.modernizaalicante.es/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-dpa\t" $2 "\t" $1}'
+wget -qO - https://guadalajara.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-guad\t" $2 "\t" $1}'
+wget -qO - https://e-ajuntament.castello.es/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-cas\t" $2 "\t" $1}'
+wget -qO - https://gestiona-zgz.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-zgz\t" $2 "\t" $1}'
+echo "------ Demos ---------------------------"
+wget -qO - https://auloce-demo.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-demos-00\t" $2 "\t" $1}'
+#wget -qO - https://demo.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-demos\t" $2 "\t" $1}'
+wget -qO - https://demo-a.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-demos-a\t" $2 "\t" $1}'
+wget -qO - https://demo-b.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-demos-b\t" $2 "\t" $1}'
+wget -qO - https://demo-c.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pool-demos-c\t" $2 "\t" $1}'
+echo "------ Preproducción -------------------"
+wget -qO - https://auloce-pre.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pre-00\t\t" $2 "\t" $1}'
+wget -qO - https://pre.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pre-01\t\t" $2 "\t" $1}'
+wget -qO - https://pre-a.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pre-a\t\t" $2 "\t" $1}'
+wget -qO - https://pre-b.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pre-b\t\t" $2 "\t" $1}'
+wget -qO - https://pre-c.gestiona.espublico.com/version | grep ^version | cut -c 15- | awk -F" build " '{ print "pre-c\t\t" $2 "\t" $1}'
