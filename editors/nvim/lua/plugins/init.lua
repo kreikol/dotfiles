@@ -61,9 +61,19 @@ require('packer').startup(function(use)
 	-- orgmode
 	use {'nvim-treesitter/nvim-treesitter'}
 	use {'nvim-orgmode/orgmode', config = function()
-		require('orgmode').setup{}
-	end
-}
+			require('orgmode').setup{}
+		end
+	}
+	
+	-- dadbod UI
+	use {'tpope/vim-dadbod' }
+	use {'kristijanhusak/vim-dadbod-ui', 
+		requires = {
+			-- 'tpope/vim-dadbod', 
+			'tpope/vim-dotenv'
+		}
+
+	}
 	
 	if packer_bootstrap then
 	     require('packer').sync()

@@ -18,7 +18,7 @@
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
     follow = none
-
+		geometry = "600x5-20+20"
     ### Geometry ###
 
     # dynamic width from 0 to 300
