@@ -50,5 +50,11 @@ c.url.searchengines['nx'] = 'http://ee-nexus.g3stiona.com:8081/nexus/#browse/sea
 ## Traductor Google
 c.url.searchengines['tt'] = 'https://translate.google.es/?hl=es&sl=en&tl=es&text={}%0A&op=translate'
 
+## Git
+c.url.searchengines['g'] = 'http://git-central.g3stiona.com/gitweb/?a=project_list&s={}&btnS=Search'
+
+## GitHub
+c.url.searchengines['gh'] = 'https://github.com/search?q={}&type=repositories'
+
 ## Atareao
 c.url.searchengines['at'] = 'https://atareao.es/?s={}'
