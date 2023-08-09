@@ -5,7 +5,10 @@ syntax:glob
 *.iml
 idea/**/*
 
+# Java
+
 **/target/*
+
 
 **/**/*.log
 
@@ -13,3 +16,7 @@ idea/**/*
 **/**/config/personal/*
 **/**/cfg/personal/*
 
+# dotnet
+
+**/**/bin/*
+**/**/obj/*
