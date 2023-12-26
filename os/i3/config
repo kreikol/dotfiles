@@ -77,15 +77,19 @@ bindsym Mod1+space exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-#bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# #bindsym $mod+l focus up
+# bindsym $mod+ntilde focus right
 
 # Desactivar el cambio de foco al mover el raton
 focus_follows_mouse no
 
 # alternatively, you can use the cursor keys:
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -104,7 +108,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+s split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -249,7 +253,9 @@ workspace $wsVM output primary
 bindsym $mod+m workspace $wsVM
 bindsym $mod+Shift+m move container to workspace $wsVM
 ## Lanzador VM
-bindsym control+$mod+m exec ~/Utils/vm-launcher.dmenu
+# bindsym control+$mod+m exec ~/Utils/vm-launcher.dmenu
+## Preparar escritorio con KVM
+bindsym control+$mod+m exec dot tech vms
 # Asignar escritorio al VirtualBox
 assign [class="VirtualBox Manager"] $wsVM
 assign [title="DevWin [Corriendo]*"] $wsVM
